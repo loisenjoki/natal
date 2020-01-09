@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SmartNatal</string>
+    <string name="message_tag_detected">NFC Tag Detected !</string>
+
 </resources>
