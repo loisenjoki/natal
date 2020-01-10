@@ -1,4 +1,4 @@
 # Smart Natal 
-under development 
+Under development.
 A hospital management Android app  for obstetrician to manage pregnancy and after birht care. 
 Build with NFC technology.
