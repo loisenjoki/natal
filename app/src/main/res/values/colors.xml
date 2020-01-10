@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="tecxt_title_color">#0c0c0c</color>
-    <color name="floating_button">#B59900FF</color>
+    <color name="floating_button">#2a8f43</color>
     <color name="white">#fff</color>
-    <color name="statusBarColor">#B59900FF</color>
+    <color name="statusBarColor">#B942FD</color>
 </resources>
