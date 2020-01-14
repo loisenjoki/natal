@@ -7,6 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
 
 
@@ -14,8 +16,11 @@
     <style name="generalnotitle" parent="Theme.AppCompat.Light" >
         <item name="android:windowNoTitle">true</item>   <!-- //this -->
         <item name="android:statusBarColor">@color/statusBarColor</item>
-
-
     </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">SmartNatal</string>
     <string name="message_tag_detected">NFC Tag Detected !</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_right_drawer">Right Drawer</string>
 
 </resources>

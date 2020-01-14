@@ -12,14 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.LandingActivity"></activity>
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/generalnotitle">
+
+
+        <activity android:name=".Activities.AdvanceDrawer5Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/generalnotitle">
+
         </activity>
     </application>
 

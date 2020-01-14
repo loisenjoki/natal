@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.luisa.smartnatal.Activities.AdvanceDrawer5Activity;
 import com.luisa.smartnatal.Activities.LandingActivity;
 import com.luisa.smartnatal.MainActivity;
 import com.luisa.smartnatal.NFC.callback.Listener;
@@ -77,7 +78,7 @@ public class NFCReadFragment extends DialogFragment {
             Log.d(TAG, "readFromNFC: "+message);
             mTvMessage.setText(message);
             ndef.close();
-            Intent intent = new Intent(getActivity(), LandingActivity.class);
+            Intent intent = new Intent(getActivity(), AdvanceDrawer5Activity.class);
             startActivity(intent);
 
         } catch (IOException | FormatException e) {
