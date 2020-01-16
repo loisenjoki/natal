@@ -7,4 +7,6 @@
     <color name="floating_button">#2a8f43</color>
     <color name="white">#fff</color>
     <color name="statusBarColor">#B942FD</color>
+    <color name="main_layout_bg">#A1E6DEDE</color>
+
 </resources>
