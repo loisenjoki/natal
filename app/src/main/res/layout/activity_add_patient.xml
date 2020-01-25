@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="0dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="10dp">
 
@@ -185,7 +185,8 @@
                 android:weightSum="12"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:layout_marginTop="30dp">
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="20dp">
 
                 <View
                     android:layout_width="0dp"
@@ -196,7 +197,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:text="Mother's Registration"
+                    android:text="Mother's Registration Form"
                     android:layout_weight="6"
                     android:textSize="12sp"
                     android:textAlignment="center"/>
