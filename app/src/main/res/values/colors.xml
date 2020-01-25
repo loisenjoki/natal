@@ -8,5 +8,8 @@
     <color name="white">#fff</color>
     <color name="statusBarColor">#B942FD</color>
     <color name="main_layout_bg">#A1E6DEDE</color>
+    <color name="text_color">#E80A0A0A</color>
+    <color name="themeColor">#11CFC5</color>
+
 
 </resources>

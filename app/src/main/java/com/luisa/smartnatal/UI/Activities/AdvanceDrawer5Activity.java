@@ -1,10 +1,9 @@
-package com.luisa.smartnatal.Activities;
+package com.luisa.smartnatal.UI.Activities;
 
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +13,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.infideap.drawerbehavior.AdvanceDrawerLayout;
-import com.luisa.smartnatal.Fragments.HomeFragment;
-import com.luisa.smartnatal.Fragments.TestFragment;
+import com.luisa.smartnatal.UI.Fragments.HomeFragment;
+import com.luisa.smartnatal.UI.Fragments.TestFragment;
 import com.luisa.smartnatal.R;
 
 public class AdvanceDrawer5Activity extends AppCompatActivity

@@ -1,4 +1,4 @@
-package com.luisa.smartnatal;
+package com.luisa.smartnatal.UI.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,12 +12,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.luisa.smartnatal.NFC.NFCReadFragment;
 import com.luisa.smartnatal.NFC.callback.Listener;
+import com.luisa.smartnatal.R;
 
 public class MainActivity extends AppCompatActivity implements Listener {
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -47,6 +47,15 @@ public class MainActivity extends AppCompatActivity implements Listener {
 
         mBtWrite =  findViewById(R.id.btnwrite);
         mBtRead =   findViewById(R.id.btnread);
+
+
+        //adding a new patiend
+        mBtWrite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AddPatient.class));
+            }
+        });
 
         mBtRead.setOnClickListener(new View.OnClickListener() {
             @Override

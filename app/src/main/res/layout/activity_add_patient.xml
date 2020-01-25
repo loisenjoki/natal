@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.Activities.AddPatient"
+    android:background="@color/statusBarColor"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:layout_gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginTop="30dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:text="REGISTER MOTHER"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="50dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/etmothersname"
+                            android:textSize="@dimen/newsMoreTextSize"
+                            android:inputType="textPersonName"
+                            android:maxLines="1"
+                            android:layout_margin="@dimen/RegisterViewsMargin"
+                            android:hint="Mother's full name"/>
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/EtIDnumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="ID number"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etAge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Date of Birth/ Age"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etBloodgrp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Blood Group"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etHBLevels"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Hemoglobin Levels"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etResus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Rhesus"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etHIVTest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="HIV Status"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/cirRegisterButton"
+                        app:spinning_bar_width="4dp"
+                        app:spinning_bar_color="#FFF"
+                        android:text="Submit"
+                        android:background="@drawable/round_corner_button_yellow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="30dp"
+                        app:initialCornerAngle="27dp"
+                        app:spinning_bar_padding="6dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="12"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:layout_weight="3"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Mother's Registration"
+                    android:layout_weight="6"
+                    android:textSize="12sp"
+                    android:textAlignment="center"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:layout_weight="3"/>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+    <View
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="11dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_side_bg"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="30dp"
+        android:adjustViewBounds="false"
+        android:src="@drawable/ic_back_img" />
+</RelativeLayout>

@@ -1,6 +1,5 @@
-package com.luisa.smartnatal.Fragments;
+package com.luisa.smartnatal.UI.Fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 

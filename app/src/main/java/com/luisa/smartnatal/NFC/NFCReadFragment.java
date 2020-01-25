@@ -15,9 +15,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.luisa.smartnatal.Activities.AdvanceDrawer5Activity;
-import com.luisa.smartnatal.Activities.LandingActivity;
-import com.luisa.smartnatal.MainActivity;
+import com.luisa.smartnatal.UI.Activities.AdvanceDrawer5Activity;
+import com.luisa.smartnatal.UI.Activities.MainActivity;
 import com.luisa.smartnatal.NFC.callback.Listener;
 import com.luisa.smartnatal.R;
 

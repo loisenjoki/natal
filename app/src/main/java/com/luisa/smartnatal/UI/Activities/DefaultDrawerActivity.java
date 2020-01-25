@@ -1,19 +1,16 @@
-package com.luisa.smartnatal.Activities;
+package com.luisa.smartnatal.UI.Activities;
 
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.infideap.drawerbehavior.AdvanceDrawerLayout;
 import com.luisa.smartnatal.R;
 
