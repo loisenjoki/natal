@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "242466188457",
+    "firebase_url": "https://smartnatal-e2b47.firebaseio.com",
+    "project_id": "smartnatal-e2b47",
+    "storage_bucket": "smartnatal-e2b47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242466188457:android:b8e6a8d36a1d8a7c410db8",
+        "android_client_info": {
+          "package_name": "com.luisa.smartnatal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242466188457-f5edh0dkc531u8f4fg91jb3a5fsvbo6v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKnVHp9haq_YfI2S1Aj7wgSy5H77So5S4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242466188457-f5edh0dkc531u8f4fg91jb3a5fsvbo6v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
