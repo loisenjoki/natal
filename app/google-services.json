@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "242466188457-b0pbnrphibl23hlb04dur6avl064649d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.luisa.smartnatal",
+            "certificate_hash": "2090612ec7cea1b8a00fd4a440c8abfae6f8020d"
+          }
+        },
+        {
           "client_id": "242466188457-f5edh0dkc531u8f4fg91jb3a5fsvbo6v.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -11,18 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UI.Activities.AddPatient"></activity>
-        <activity android:name=".UI.Activities.LandingActivity" />
-        <activity android:name=".UI.Activities.AdvanceDrawer5Activity"></activity>
-        <activity
-            android:name=".UI.Activities.MainActivity"
-            android:theme="@style/generalnotitle">
+        <activity android:name=".UI.Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".UI.Activities.SignUpActivity">
+        </activity>
+        <activity android:name=".UI.Activities.AddPatientActivity" />
+        <activity android:name=".UI.Activities.LandingActivity" />
+        <activity android:name=".UI.Activities.HomeActivity" />
+        <activity
+            android:name=".UI.Activities.MainActivity"
+            android:theme="@style/generalnotitle"></activity>
     </application>
 
 </manifest>

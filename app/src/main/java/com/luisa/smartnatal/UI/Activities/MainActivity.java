@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements Listener {
         mBtWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddPatient.class));
+                startActivity(new Intent(getApplicationContext(), AddPatientActivity.class));
             }
         });
 

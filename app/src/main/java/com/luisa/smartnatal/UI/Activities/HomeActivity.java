@@ -1,5 +1,6 @@
 package com.luisa.smartnatal.UI.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -14,12 +15,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.infideap.drawerbehavior.AdvanceDrawerLayout;
 import com.luisa.smartnatal.UI.Fragments.HomeFragment;
 import com.luisa.smartnatal.UI.Fragments.TestFragment;
 import com.luisa.smartnatal.R;
 
-public class AdvanceDrawer5Activity extends AppCompatActivity
+public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private AdvanceDrawerLayout drawer;
@@ -92,17 +94,27 @@ public class AdvanceDrawer5Activity extends AppCompatActivity
         switch (viewId) {
             case R.id.nav_camera:
                 fragment = new HomeFragment();
-                title  = "News";
+                title  = "Home";
                 viewIsAtHome = true;
 
 
                 break;
             case R.id.nav_gallery:
                 fragment = new TestFragment();
-                title = "Events";
+                title = "Tests";
                 viewIsAtHome = false;
 
                 break;
+            case R.id.log_out:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+
+
+                break;
+        default:
+            break;
+
 
         }
 
