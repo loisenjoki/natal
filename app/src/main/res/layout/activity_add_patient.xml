@@ -24,6 +24,16 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="-30dp"
+                    android:layout_marginRight="138dp"
+                    android:src="@drawable/logo" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -32,12 +42,7 @@
                     android:textColor="@color/white"
                     android:text="REGISTER MOTHER"/>
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/logo"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"/>
+
             </RelativeLayout>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
