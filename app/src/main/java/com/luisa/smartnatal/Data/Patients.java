@@ -1,5 +1,7 @@
 package com.luisa.smartnatal.Data;
 
+import java.util.Random;
+
 public class Patients {
 
     String age;
@@ -10,20 +12,22 @@ public class Patients {
     String name;
     String rhesus;
     int ID;
+    String card_num;
 
     public Patients() {
 
     }
 
-    public Patients(String Name, String Age){
+    public Patients(String Name, String Age,String IDNumber, String Bloodgrp, String Hemaglobin, String Rhesus, String HivTest, String CardNumber){
 
         this.age = Age;
-        //this.blood_group = Bloodgrp;
-        //this.hemoglobin_levels = Hemaglobin;
-       // this.hiv_status = HivTest;
-       // this.id_number = IDNumber;
+        this.blood_group = Bloodgrp;
+        this.hemoglobin_levels = Hemaglobin;
+        this.hiv_status = HivTest;
+        this.id_number = IDNumber;
         this.name = Name;
-       // this.rhesus = Rhesus;
+        this.rhesus = Rhesus;
+        this.card_num = CardNumber;
     }
 
     public int getID() {
@@ -88,5 +92,14 @@ public class Patients {
 
     public void setRhesus(String rhesus) {
         this.rhesus = rhesus;
+    }
+
+    public String getCard_num() {
+
+        return card_num;
+    }
+
+    public void setCard_num(String card_num) {
+        this.card_num = card_num;
     }
 }

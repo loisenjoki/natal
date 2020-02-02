@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -19,7 +20,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var passwordEt: EditText
 
     private lateinit var signUpBtn: Button
-    private lateinit var loginBtn: Button
+    private lateinit var loginBtn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

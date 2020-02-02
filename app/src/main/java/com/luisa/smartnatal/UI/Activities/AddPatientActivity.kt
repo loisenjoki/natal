@@ -15,8 +15,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.luisa.smartnatal.Data.Patients
 import com.luisa.smartnatal.R
-
-import java.util.HashMap
+import java.util.*
 
 class AddPatientActivity : AppCompatActivity() {
     private lateinit var age: String
@@ -67,16 +66,23 @@ class AddPatientActivity : AppCompatActivity() {
             name = etmothersname.text!!.toString()
             rhesus = etResus.text!!.toString()
 
-               addPatients(name,age)
+               addPatients(name,age,id_number,blood_group,hemoglobin_levels,rhesus,hiv_status,"")
             Log.e("ddd", "we are here")
         }
 
 
     }
 
-    private fun addPatients( Name: String, Age: String) {
-        val patients = Patients("Loise", "25")
-        mFirebaseDatabase.child("2").setValue(patients)
+    private fun addPatients( Name:String, Age:String, IDNumber:String, Bloodgrp:String, Hemaglobin:String,
+                             Rhesus:String, HIVStatus:String,CardNum:String) {
+      //sequntially generate card number
+        val rn = Random()
+        val cardnum = "SNT" + rn + "/2020"
+
+        val patients = Patients("Loise", "25","23423432","haimoA","A+",
+                "Rhesus","Neg(-)",cardnum)
+
+        mFirebaseDatabase.child("3").setValue(patients)
 
         intent = Intent(applicationContext,HomeActivity::class.java)
         startActivity(intent)

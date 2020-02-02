@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#B942FD</color>
     <color name="colorPrimaryDark">#B942FD</color>
+    <color name="bglogin">#FA42FD</color>
     <color name="colorAccent">#D81B60</color>
     <color name="tecxt_title_color">#0c0c0c</color>
     <color name="floating_button">#2a8f43</color>
