@@ -11,7 +11,7 @@ public class Patients {
     String id_number;
     String name;
     String rhesus;
-    int ID;
+    String uid;
     String card_num;
 
     public Patients() {
@@ -28,14 +28,7 @@ public class Patients {
         this.name = Name;
         this.rhesus = Rhesus;
         this.card_num = CardNumber;
-    }
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getAge() {
@@ -101,5 +94,13 @@ public class Patients {
 
     public void setCard_num(String card_num) {
         this.card_num = card_num;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

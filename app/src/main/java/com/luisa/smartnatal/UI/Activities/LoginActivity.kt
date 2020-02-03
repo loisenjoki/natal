@@ -1,13 +1,11 @@
 package com.luisa.smartnatal.UI.Activities
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.luisa.smartnatal.R
@@ -22,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginBtn: Button
 
     private lateinit var resetPasswordTv: TextView
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,21 +29,28 @@ class LoginActivity : AppCompatActivity() {
         emailEt = findViewById(R.id.email_edt_text)
         passwordEt = findViewById(R.id.pass_edt_text)
 
+
         signupBtn = findViewById(R.id.signup_btn)
         loginBtn = findViewById(R.id.login_btn)
 
         resetPasswordTv = findViewById(R.id.reset_pass_tv)
 
         auth = FirebaseAuth.getInstance()
+        progressDialog = ProgressDialog(this)
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER)
 
 
     loginBtn.setOnClickListener {
         var email: String = emailEt.text.toString()
         var password: String = passwordEt.text.toString()
 
+        progressDialog.setMessage("Logging Please Wait")
+        progressDialog.show();
+
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(this@LoginActivity, "Please fill all the fields", Toast.LENGTH_LONG).show()
         } else{
+            progressDialog.show()
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener { task ->
                 if(task.isSuccessful) {
                     Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_LONG).show()
@@ -53,6 +59,8 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }else {
                     Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show()
+                    progressDialog.dismiss()
+
                 }
             })
         }

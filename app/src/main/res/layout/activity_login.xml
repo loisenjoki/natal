@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
+                android:inputType="textEmailAddress"
                 style="@style/LoginEditTextTheme"
                 android:hint="email"/>
 
@@ -101,7 +102,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_weight="0.6"
                 android:gravity="right"
                 android:textColor="@color/main_layout_bg"
                 android:text="Don't have an account yet?"/>
@@ -110,7 +111,7 @@
                 android:id="@+id/signup_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_weight="0.4"
                 android:gravity="left"
                 android:textColor="@color/white"
                 android:text=" Sign Up" />

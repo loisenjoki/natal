@@ -1,5 +1,6 @@
 package com.luisa.smartnatal.UI.Activities
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 
@@ -21,6 +22,8 @@ class SignUpActivity : AppCompatActivity() {
 
     private lateinit var signUpBtn: Button
     private lateinit var loginBtn: TextView
+    private lateinit var progressDialog: ProgressDialog
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,8 @@ class SignUpActivity : AppCompatActivity() {
 
         loginBtn = findViewById(R.id.login_btn)
         signUpBtn = findViewById(R.id.signup_btn)
-
+        progressDialog.setMessage("Logging Please Wait")
+        progressDialog.show();
         signUpBtn.setOnClickListener{
             var email: String = emailEt.text.toString()
             var password: String = passwordEt.text.toString()
@@ -42,6 +46,7 @@ class SignUpActivity : AppCompatActivity() {
             if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG).show()
             } else{
+                progressDialog.show();
                 auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener{ task ->
                     if(task.isSuccessful){
                         Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
@@ -50,7 +55,8 @@ class SignUpActivity : AppCompatActivity() {
                         finish()
                     }else {
                           intent = Intent(applicationContext,MainActivity::class.java)
-                         startActivity(intent)                    }
+                         startActivity(intent)
+                    }
                 })
             }
         }
