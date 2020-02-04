@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/logo"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_alignParentTop="true"
@@ -43,13 +44,6 @@
                     android:textColor="@color/white"
                     android:text="REGISTER MOTHER"/>
 
-                <ImageView
-                    android:id="@+id/logo"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/logo"
-                    android:layout_centerInParent="true"
-                    android:layout_alignParentTop="true"/>
             </RelativeLayout>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -74,6 +68,22 @@
                             android:maxLines="1"
                             android:layout_margin="@dimen/RegisterViewsMargin"
                             android:hint="Mother's full name"/>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/Etphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="PhoneNumber"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
                     <androidx.appcompat.widget.AppCompatEditText
@@ -107,6 +117,21 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Are of Residence"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/etBloodgrp"
@@ -116,6 +141,51 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
                         android:hint="Blood Group"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etweight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Weight"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etheight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Height"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/RegisterViewsMargin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etBloodPresure"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Blood Pressure"
                         android:textSize="@dimen/newsMoreTextSize"
                         android:inputType="textPersonName"
                         android:maxLines="1"
@@ -243,5 +313,6 @@
         android:layout_marginRight="11dp"
         android:layout_marginBottom="30dp"
         android:adjustViewBounds="false"
+        android:id="@+id/backbtn"
         android:src="@drawable/ic_back_img" />
 </RelativeLayout>

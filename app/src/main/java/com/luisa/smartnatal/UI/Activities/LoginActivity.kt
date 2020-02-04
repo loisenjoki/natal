@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.*
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -79,6 +80,8 @@ class LoginActivity : AppCompatActivity() {
                 user?.let {
                     val email = user.email
                     val uid = user.uid
+
+                    Log.e("users info", user.email+ user.uid)
 
                 }
 
