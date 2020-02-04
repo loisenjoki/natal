@@ -13,12 +13,15 @@ public class Patients {
     String rhesus;
     String uid;
     String card_num;
+    String phoneNumber;
+    String residence;
+    String weight;
+    String height;
+    String bloodpressure;
 
-    public Patients() {
 
-    }
-
-    public Patients(String Name, String Age,String IDNumber, String Bloodgrp, String Hemaglobin, String Rhesus, String HivTest, String CardNumber){
+    public Patients(String Name, String Age,String IDNumber, String Bloodgrp, String Hemaglobin, String Rhesus, String HivTest,
+                    String CardNumber,String PhoneNumber,String Residence,String Weight,String Height,String BloodPressure){
 
         this.age = Age;
         this.blood_group = Bloodgrp;
@@ -28,6 +31,11 @@ public class Patients {
         this.name = Name;
         this.rhesus = Rhesus;
         this.card_num = CardNumber;
+        this.phoneNumber = PhoneNumber;
+        this.residence = Residence;
+        this.weight = Weight;
+        this.height = Height;
+        this.bloodpressure = BloodPressure;
 
     }
 
@@ -102,5 +110,45 @@ public class Patients {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getResidence() {
+        return residence;
+    }
+
+    public void setResidence(String residence) {
+        this.residence = residence;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getBloodpressure() {
+        return bloodpressure;
+    }
+
+    public void setBloodpressure(String bloodpressure) {
+        this.bloodpressure = bloodpressure;
     }
 }

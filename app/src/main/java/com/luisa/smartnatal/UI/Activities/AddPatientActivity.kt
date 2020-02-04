@@ -94,7 +94,8 @@ class AddPatientActivity : AppCompatActivity() {
 
 
 
-        SavePatientsData(name,age,id_number,blood_group,hemoglobin_levels,rhesus,hiv_status,"", "LwXol6llnjcCWlcuL4l5QXDphUo612")
+        SavePatientsData(name,age,id_number,blood_group,hemoglobin_levels,rhesus,hiv_status,"",
+                "LwXol6llnjcCWlceeegituL4l5QXDphUo612",phoneNum,residence,weight,height,bloodpressure)
 
     }
 
@@ -102,19 +103,23 @@ class AddPatientActivity : AppCompatActivity() {
 
 
     private fun SavePatientsData( Name:String, Age:String, IDNumber:String, Bloodgrp:String, Hemaglobin:String,
-                             Rhesus:String, HIVStatus:String,CardNum:String,userID:String) {
+                             Rhesus:String, HIVStatus:String,CardNum:String,userID:String, PhoneNumber:String,
+                                  Residence:String, Weight:String,Height:String,Bloodp:String) {
 
+        if (!validateForm()) {
+            return
+        }
 
         val cardnum = "SNT" + Utils.RandomNum() + "/2020"
 
-        val patients = Patients("Loise ULE", "258u44","23423432dd44","haimoB+","AB+",
-                "Rhesus","Neg(-)",cardnum)
-
+        val patients = Patients(name, age,id_number,blood_group,hemoglobin_levels,hiv_status,
+                rhesus,cardnum,phoneNum,residence,weight,height,bloodpressure)
+        Log.d("USer", patients.toString())
 
         databaseReference.child(userID).setValue(patients)
 
-       /* intent = Intent(applicationContext,HomeActivity::class.java)
-        startActivity(intent)*/
+        intent = Intent(applicationContext,HomeActivity::class.java)
+        startActivity(intent)
 
 
 
