@@ -45,9 +45,6 @@ class AddPatientActivity : AppCompatActivity() {
 
         firebaseDatabase = FirebaseDatabase.getInstance()
         databaseReference = firebaseDatabase.getReference("patients")
-
-
-
         btnsubmit = findViewById(R.id.cirRegisterButton)
         etAge = findViewById(R.id.etAge)
         etBloodgrp = findViewById(R.id.etBloodgrp)
@@ -58,52 +55,35 @@ class AddPatientActivity : AppCompatActivity() {
         EtIDnumber = findViewById(R.id.EtIDnumber)
 
         btnsubmit.setOnClickListener {
-            age = etAge.text!!.toString()
-            blood_group = etBloodgrp.text!!.toString()
-            hemoglobin_levels = etHBLevels.text!!.toString()
-            hiv_status = etHIVTest.text!!.toString()
-            id_number = EtIDnumber.text!!.toString()
-            name = etmothersname.text!!.toString()
-            rhesus = etResus.text!!.toString()
-
-
-         val userListener =   object : ValueEventListener{
-                        override fun onDataChange(dataSnapshot: DataSnapshot) {
-                            //getting user values
-                            val user = dataSnapshot.getValue(User::class.java)
-                            if (user==null) {
-                                Toast.makeText(baseContext,
-                                        "Error: could not fetch user.",
-                                        Toast.LENGTH_SHORT).show()
-                            } else{
-
-                                val userID = "LwXol6njcCWlcuL4l5QXDphUo612"
-
-                                if (user!=null){
-                                    //addPatients(name,age,id_number,blood_group,hemoglobin_levels,rhesus,hiv_status,"", "LwXol6njcCWlcuL4l5QXDphUo612")
-                                }
-                                Log.e("ddd", "we are here")}
-
-
-                        }
-
-                        override fun onCancelled(databaseError: DatabaseError) {
-                            Log.w("Error", "getUser:onCancelled", databaseError.toException())
-
-                        }
-
-                    }
-
-                    databaseReference.addValueEventListener(userListener)
-                    this.userListener = userListener
-
-
+            addPatient()
         }
+    }
 
+    //check current doctor
+    private fun checkCurrentuser(){
 
     }
 
-    private fun addPatients( Name:String, Age:String, IDNumber:String, Bloodgrp:String, Hemaglobin:String,
+
+    private fun addPatient() {
+
+        age = etAge.text!!.toString()
+        blood_group = etBloodgrp.text!!.toString()
+        hemoglobin_levels = etHBLevels.text!!.toString()
+        hiv_status = etHIVTest.text!!.toString()
+        id_number = EtIDnumber.text!!.toString()
+        name = etmothersname.text!!.toString()
+        rhesus = etResus.text!!.toString()
+
+
+                        SavePatientsData(name,age,id_number,blood_group,hemoglobin_levels,rhesus,hiv_status,"", "LwXol6njcCWlcuL4l5QXDphUo612")
+
+    }
+
+
+
+
+    private fun SavePatientsData( Name:String, Age:String, IDNumber:String, Bloodgrp:String, Hemaglobin:String,
                              Rhesus:String, HIVStatus:String,CardNum:String,userID:String) {
 
 
@@ -114,7 +94,7 @@ class AddPatientActivity : AppCompatActivity() {
         }
         val cardnum = "SNT" + Utils.RandomNum() + "/2020"
 
-        val patients = Patients("Loise", "258u","23423432","haimoA","A+",
+        val patients = Patients("Loise Mwai", "258u44","2342343244","haimoB+","AB+",
                 "Rhesus","Neg(-)",cardnum)
 
 

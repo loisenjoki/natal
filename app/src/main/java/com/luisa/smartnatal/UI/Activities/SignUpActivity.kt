@@ -12,6 +12,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.luisa.smartnatal.R
 
 class SignUpActivity : AppCompatActivity() {
@@ -23,6 +25,10 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var signUpBtn: Button
     private lateinit var loginBtn: TextView
     private lateinit var progressDialog: ProgressDialog
+   //Firebase references
+    private var mDatabaseReference: DatabaseReference? = null
+    private var mDatabase: FirebaseDatabase? = null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,27 +43,24 @@ class SignUpActivity : AppCompatActivity() {
 
         loginBtn = findViewById(R.id.login_btn)
         signUpBtn = findViewById(R.id.signup_btn)
-        progressDialog.setMessage("Logging Please Wait")
-        progressDialog.show();
+        progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Registering Please Wait")
+        mDatabase = FirebaseDatabase.getInstance()
+        mDatabaseReference = mDatabase!!.reference!!.child("Users")
+
+
+
+        //signup button
         signUpBtn.setOnClickListener{
+            progressDialog.show()
             var email: String = emailEt.text.toString()
             var password: String = passwordEt.text.toString()
 
             if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG).show()
             } else{
-                progressDialog.show();
-                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener{ task ->
-                    if(task.isSuccessful){
-                        Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }else {
-                          intent = Intent(applicationContext,MainActivity::class.java)
-                         startActivity(intent)
-                    }
-                })
+
+                createnewUser(email,password)
             }
         }
 
@@ -68,6 +71,24 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private fun createnewUser(email:String, password:String) {
+
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener{ task ->
+            if(task.isSuccessful){
+                val userId = auth!!.currentUser!!.uid
+                val currentUserDb = mDatabaseReference!!.child(userId)
+                Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }else {
+                Toast.makeText(baseContext, "Registration failed.",
+                        Toast.LENGTH_SHORT).show()
+
+
+            }
+        })    }
 
 /*    public override fun onStart() {
         super.onStart()

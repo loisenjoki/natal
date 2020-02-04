@@ -15,6 +15,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.luisa.smartnatal.NFC.NFCReadFragment;
 import com.luisa.smartnatal.NFC.callback.Listener;
 import com.luisa.smartnatal.R;
@@ -27,6 +31,15 @@ public class MainActivity extends AppCompatActivity implements Listener {
     private NFCReadFragment mNfcReadFragment;
     private boolean isDialogDisplayed = false;
     private boolean isWrite = false;
+
+    //Firebase
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mUsersDatabaseReference;
+    private DatabaseReference mUserReference;
+    private ChildEventListener mChildEventListener;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
+
     private NfcAdapter mNfcAdapter;
 
 
@@ -39,9 +52,16 @@ public class MainActivity extends AppCompatActivity implements Listener {
         getSupportActionBar().hide(); //<< this
         setContentView(R.layout.activity_main);
 
+
+        //Firebase
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mUsersDatabaseReference = mFirebaseDatabase.getReference().child("users");
         initViews();
         initNFC();
+        isloggedin();
     }
+
 
     private void initViews() {
 
@@ -139,5 +159,13 @@ public class MainActivity extends AppCompatActivity implements Listener {
             }
         }
     }
+
+    private void isloggedin() {
+
+
+
+    }
+
+
 }
 
