@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements Listener {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            Log.e("user is Registerd","Yesss");
+            Log.e("user is Registerd","Logged In");
         } else {
 
             Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
