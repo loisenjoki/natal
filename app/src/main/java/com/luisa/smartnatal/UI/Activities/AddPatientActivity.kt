@@ -89,13 +89,13 @@ class AddPatientActivity : AppCompatActivity() ,Listener {
 
          cardnum = "SNT" + AppUtils.RandomNum() + "/2020"
 
-        initNFC()
+        //initNFC()
         mNfcWriteFragment  = NFCWriteFragment()
 
 
         btnsubmit.setOnClickListener {
             SavePatientsData()
-            showWriteFragment()
+            //showWriteFragment()
         }
 
         btnback = findViewById(R.id.backbtn)
@@ -150,6 +150,7 @@ class AddPatientActivity : AppCompatActivity() ,Listener {
         isDialogDisplayed = false
         isWrite = false
     }
+/*
 
     override fun onResume() {
         super.onResume()
@@ -196,6 +197,7 @@ class AddPatientActivity : AppCompatActivity() ,Listener {
             }
         }
     }
+*/
 
 
 }
