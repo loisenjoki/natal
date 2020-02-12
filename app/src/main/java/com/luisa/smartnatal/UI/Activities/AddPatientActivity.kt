@@ -15,16 +15,17 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
+import br.com.simplepass.loading_button_lib.Utils
 import com.google.firebase.database.*
 
 import com.luisa.smartnatal.Data.Patients
-import com.luisa.smartnatal.NFC.NFCReadFragment
+import com.luisa.smartnatal.Data.User
 import com.luisa.smartnatal.NFC.NFCWriteFragment
 import com.luisa.smartnatal.NFC.callback.Listener
 import com.luisa.smartnatal.R
 import com.luisa.smartnatal.Utils.AppUtils
 
-class AddPatientActivity : AppCompatActivity() ,Listener {
+class AddPatientActivity : AppCompatActivity(),Listener {
     private lateinit var age: String
     private lateinit var blood_group: String
     private lateinit var hemoglobin_levels: String
@@ -37,6 +38,7 @@ class AddPatientActivity : AppCompatActivity() ,Listener {
     private lateinit var weight: String
     private lateinit var rhesus: String
     private lateinit var cardnum: String
+    //Widgets
     private lateinit var bloodpressure: String
     private lateinit var etphoneNum: AppCompatEditText
     private lateinit var etresidence: AppCompatEditText
@@ -52,13 +54,13 @@ class AddPatientActivity : AppCompatActivity() ,Listener {
     private lateinit var etResus: AppCompatEditText
     private lateinit var btnsubmit: AppCompatButton
     private lateinit var btnback: ImageView
-    lateinit var patients: Patients
     //firebase database
     //val is immutable whele var can be assigned multiple times
     private lateinit var mDatabase: DatabaseReference
     private lateinit var databaseReference: DatabaseReference
     private lateinit var firebaseDatabase: FirebaseDatabase
     private var userListener: ValueEventListener? = null
+
     //NFC Declarations
     private lateinit var mNfcWriteFragment: NFCWriteFragment
     val TAG = NFCWriteFragment::class.java.simpleName
@@ -87,43 +89,45 @@ class AddPatientActivity : AppCompatActivity() ,Listener {
         etbloodpressure = findViewById(R.id.etBloodPresure)
         etresidence = findViewById(R.id.location)
 
-         cardnum = "SNT" + AppUtils.RandomNum() + "/2020"
+        //random card number
+          cardnum = "SNT" + AppUtils.RandomNum() + "/2020"
 
         initNFC()
         mNfcWriteFragment  = NFCWriteFragment()
 
 
+
         btnsubmit.setOnClickListener {
+            validateForm()
             SavePatientsData()
-            showWriteFragment()
         }
 
         btnback = findViewById(R.id.backbtn)
         btnback.setOnClickListener {
-             intent = Intent(this,MainActivity::class.java)
+            intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
     }
-    private fun SavePatientsData() {
 
-      /* if (!AppUtils.validated(etmothersname, etAge,etBloodgrp,etHBLevels,etHIVTest,
-                        etResus,etphoneNum,etresidence,etweight,etheight,etbloodpressure)) {
+
+    private fun SavePatientsData( ) {
+
+       if (!validateForm()) {
             return
-        }*/
-            if (::patients.isInitialized)
+        }
 
-            patients = Patients(name, age,id_number,blood_group,hemoglobin_levels,hiv_status,
-                    rhesus,cardnum,phoneNum,residence,weight,height,bloodpressure)
-            //Log.d("USer", patients.toString())
+        val patients = Patients(name, age,id_number,blood_group,hemoglobin_levels,hiv_status,
+                rhesus,cardnum,phoneNum,residence,weight,height,bloodpressure)
 
-            databaseReference.child(databaseReference.push().key!!).setValue(patients)
-
-            intent = Intent(applicationContext,HomeActivity::class.java)
-            startActivity(intent)
+        databaseReference.child(databaseReference.push().key!!).setValue(patients)
+        showWriteFragment()
 
 
 
     }
+
+
+
     //initating NFC
     private fun initNFC() {
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this)
@@ -151,6 +155,7 @@ class AddPatientActivity : AppCompatActivity() ,Listener {
         isWrite = false
     }
 
+
     override fun onResume() {
         super.onResume()
         val tagDetected = IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED)
@@ -169,13 +174,13 @@ class AddPatientActivity : AppCompatActivity() ,Listener {
 
     }
 
-     override fun onPause() {
+    override fun onPause() {
         super.onPause()
         if (mNfcAdapter != null)
             mNfcAdapter.disableForegroundDispatch(this)
     }
 
-     override fun onNewIntent(intent: Intent) {
+    override fun onNewIntent(intent: Intent) {
         val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
 
         Log.d(TAG, "onNewIntent: " + intent.action!!)
@@ -191,10 +196,105 @@ class AddPatientActivity : AppCompatActivity() ,Listener {
                     mNfcWriteFragment = fragmentManager.findFragmentByTag(NFCWriteFragment.TAG) as NFCWriteFragment
                     mNfcWriteFragment.onNfcDetected(ndef, cardnum)
                     Log.e("Card Number >>>>>>>>>>",cardnum)
+                   var intent = Intent(applicationContext,HomeActivity::class.java)
+                    startActivity(intent)
 
                 }
             }
         }
+    }
+
+
+
+
+
+
+
+
+
+    private fun validateForm(): Boolean {
+        var valid = true
+
+        age = etAge.text!!.toString()
+        if (TextUtils.isEmpty(age)) {
+            etAge.setError("Required.")
+            valid = false
+        } else {
+            etAge.setError(null)
+        }
+        blood_group = etBloodgrp.text!!.toString()
+        if (TextUtils.isEmpty(blood_group)) {
+            etBloodgrp.setError("Required.")
+            valid = false
+        } else {
+            etBloodgrp.setError(null)
+        }
+        hemoglobin_levels = etHBLevels.text!!.toString()
+        if (TextUtils.isEmpty(hemoglobin_levels)) {
+            etHBLevels.setError("Required.")
+            valid = false
+        } else {
+            etHBLevels.setError(null)
+        }
+        hiv_status = etHIVTest.text!!.toString()
+        if (TextUtils.isEmpty(hiv_status)) {
+            etHIVTest.setError("Required.")
+            valid = false
+        } else {
+            etHIVTest.setError(null)
+        }
+        id_number = EtIDnumber.text!!.toString()
+
+        name = etmothersname.text!!.toString()
+        if (TextUtils.isEmpty(name)) {
+            etmothersname.setError("Required.")
+            valid = false
+        } else {
+            etmothersname.setError(null)
+        }
+
+        weight = etweight.text!!.toString()
+        if (TextUtils.isEmpty(weight)) {
+            etweight.setError("Required.")
+            valid = false
+        } else {
+            etweight.setError(null)
+        }
+        phoneNum = etphoneNum.text!!.toString()
+        if (TextUtils.isEmpty(phoneNum)) {
+            etphoneNum.setError("Required.")
+            valid = false
+        } else {
+            etphoneNum.setError(null)
+        }
+        height = etheight.text!!.toString()
+        if (TextUtils.isEmpty(height)) {
+            etheight.setError("Required.")
+            valid = false
+        } else {
+            etheight.setError(null)
+        }
+        bloodpressure = etbloodpressure.text!!.toString()
+        if (TextUtils.isEmpty(bloodpressure)) {
+            etbloodpressure.setError("Required.")
+            valid = false
+        } else {
+            etbloodpressure.setError(null)
+        }
+        residence = etresidence.text!!.toString()
+        if (TextUtils.isEmpty(residence)) {
+            etresidence.setError("Required.")
+            valid = false
+        } else {
+            etresidence.setError(null)
+        }
+
+
+
+
+        rhesus = etResus.text!!.toString()
+
+        return valid
     }
 
 
