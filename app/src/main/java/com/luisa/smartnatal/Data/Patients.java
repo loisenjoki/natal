@@ -19,6 +19,7 @@ public class Patients {
     String height;
     String bloodpressure;
 
+    Patients(){}
 
     public Patients(String Name, String Age,String IDNumber, String Bloodgrp, String Hemaglobin, String Rhesus, String HivTest,
                     String CardNumber,String PhoneNumber,String Residence,String Weight,String Height,String BloodPressure){
@@ -38,6 +39,8 @@ public class Patients {
         this.bloodpressure = BloodPressure;
 
     }
+
+
 
     public String getAge() {
         return age;
