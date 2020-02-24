@@ -1,5 +1,6 @@
 package com.luisa.smartnatal.UI.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.PendingIntent;
@@ -23,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.luisa.smartnatal.NFC.NFCReadFragment;
 import com.luisa.smartnatal.NFC.callback.Listener;
 import com.luisa.smartnatal.R;
+
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity implements Listener {
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -60,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements Listener {
         mUsersDatabaseReference = mFirebaseDatabase.getReference().child("users");
         initViews();
         initNFC();
+        Timber.i("thestate %s!", "Created");
+
     }
 
 
@@ -127,6 +132,8 @@ public class MainActivity extends AppCompatActivity implements Listener {
                 this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
         if(mNfcAdapter!= null)
             mNfcAdapter.enableForegroundDispatch(this, pendingIntent, nfcIntentFilter, null);
+        Timber.i("thestate %s!", "Resume");
+
 
     }
 
@@ -135,6 +142,8 @@ public class MainActivity extends AppCompatActivity implements Listener {
         super.onPause();
         if(mNfcAdapter!= null)
             mNfcAdapter.disableForegroundDispatch(this);
+        Timber.i("thestate %s!", "Paused");
+
     }
 
     @Override
@@ -167,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements Listener {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mFirebaseAuth.getCurrentUser();
         updateUI(currentUser);
+        Timber.i("thestate %s!", "the state is onstart");
     }
 
     private void updateUI(FirebaseUser user) {
@@ -179,8 +189,35 @@ public class MainActivity extends AppCompatActivity implements Listener {
         }
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Timber.i("thestate %s!", "Stop");
 
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Timber.i("thestate %s!", "Destroyed");
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Timber.i("thestate %s!", "Restated");
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
 }
 

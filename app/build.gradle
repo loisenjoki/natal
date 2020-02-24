@@ -44,6 +44,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     //picasso for image loading
     implementation 'com.squareup.picasso:picasso:2.71828'
+    //Timber for loggins
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
 
 
 
