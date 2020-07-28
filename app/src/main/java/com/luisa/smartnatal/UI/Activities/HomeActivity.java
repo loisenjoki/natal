@@ -68,11 +68,11 @@ public class HomeActivity extends AppCompatActivity
         } else {
             moveTaskToBack(true);  //If view is in News fragment, exit application
         }
-   /*     if (drawer.isDrawerOpen(GravityCompat.START)) {
+       if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-        }*/
+        }
     }
 
 

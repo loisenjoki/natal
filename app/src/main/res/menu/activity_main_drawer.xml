@@ -5,19 +5,19 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_note_add_black_24dp"
-            android:title="Impgggort" />
+            android:title="Home" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_note_add_black_24dp"
-            android:title="Gallery" />
+            android:title="Tests" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_note_add_black_24dp"
-            android:title="Slideshow" />
+            android:title="Appointments" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_note_add_black_24dp"
-            android:title="Tools" />
+            android:title="Notes" />
     </group>
 
     <item android:title="Settings">
