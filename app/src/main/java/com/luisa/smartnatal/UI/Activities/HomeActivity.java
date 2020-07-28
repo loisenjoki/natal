@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.infideap.drawerbehavior.AdvanceDrawerLayout;
+import com.luisa.smartnatal.UI.Fragments.AppointmentFragment;
 import com.luisa.smartnatal.UI.Fragments.HomeFragment;
 import com.luisa.smartnatal.UI.Fragments.TestFragment;
 import com.luisa.smartnatal.R;
@@ -104,6 +105,11 @@ public class HomeActivity extends AppCompatActivity
                 title = "Tests";
                 viewIsAtHome = false;
 
+                break;
+            case R.id.nav_slideshow:
+                fragment = new AppointmentFragment();
+                title = "Appointments";
+                viewIsAtHome = false;
                 break;
             case R.id.log_out:
                 FirebaseAuth.getInstance().signOut();
