@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_marginLeft="15dp"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
     <TextView
@@ -10,14 +13,17 @@
         android:layout_height="wrap_content"
         android:text="my data"
         android:id="@+id/testing"
+        android:textSize="@dimen/text_normal"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="my data"
+        android:id="@+id/appoTime"
+        android:textSize="@dimen/text_normal"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="29dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
