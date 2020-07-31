@@ -1,5 +1,6 @@
 package com.luisa.smartnatal.UI.Fragments;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -7,11 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +26,7 @@ import android.widget.Toast;
 import org.threeten.bp.format.DateTimeFormatter;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.luisa.smartnatal.Data.DatabaseHelper;
 import com.luisa.smartnatal.Data.Date;
 import com.luisa.smartnatal.R;
 import com.luisa.smartnatal.UI.Adaptors.AppointmentAdaptor;
@@ -57,7 +62,8 @@ public class AppointmentFragment extends Fragment implements OnDateLongClickList
     View view;
     private TextInputLayout etname, ettime;
     private  Button btnsubmint;
-
+    // Database Helper
+    DatabaseHelper db;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -103,16 +109,22 @@ public class AppointmentFragment extends Fragment implements OnDateLongClickList
         textView = view.findViewById(R.id.textViewcalender);
         recyclerView = view.findViewById(R.id.recyclerview);
         dateList = new ArrayList<>();
+        db = new DatabaseHelper(getActivity());
         appointmentAdaptor = new AppointmentAdaptor(dateList);
         // Set layout manager to position the items
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.recyclerview_divider));
+        recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setAdapter(appointmentAdaptor);
 
         widget.setOnDateChangedListener(this);
         widget.setOnDateLongClickListener(this);
         widget.setOnMonthChangedListener( this);
+
         return view;
     }
 
@@ -131,8 +143,13 @@ public class AppointmentFragment extends Fragment implements OnDateLongClickList
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
            //Toast.makeText(getActivity(),String.valueOf( date.getDay()), Toast.LENGTH_SHORT).show();
-        textView.setText(selected ? FORMATTER.format(date.getDate()) : "No Selection");
-        appointmentDialog();
+        String dates = selected ? FORMATTER.format(date.getDate()):"No Selection";
+        textView.setText(dates);
+      //  appointmentDialog(dates);
+        String newDate  = date.getDate().toString();
+        newDate = newDate.replace("-","");
+        inserData(newDate,"appointname","time");
+
 
 
     }
@@ -141,7 +158,7 @@ public class AppointmentFragment extends Fragment implements OnDateLongClickList
         //noinspection ConstantConditions
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(FORMATTER.format(date.getDate()));
     }
-    private void appointmentDialog() {
+    private void appointmentDialog(final String appoinmentdate) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         ViewGroup viewGroup = view.findViewById(android.R.id.content);
@@ -158,7 +175,7 @@ public class AppointmentFragment extends Fragment implements OnDateLongClickList
             public void onClick(View v) {
                 String appointname = etname.getEditText().getText().toString();
                 String time = ettime.getEditText().getText().toString();
-                preparedates(appointname,time);
+                inserData(appoinmentdate,appointname,time);
 
                 alertDialog.dismiss();
             }
@@ -166,10 +183,26 @@ public class AppointmentFragment extends Fragment implements OnDateLongClickList
 
     }
 
-    private void preparedates(String mydate, String mytime){
-        Toast.makeText(getActivity(), mydate, Toast.LENGTH_SHORT).show();
-        Date datess = new Date(mydate,mytime);
-        dateList.add(datess);
-        appointmentAdaptor.notifyDataSetChanged();
+    private void inserData(String thedates,String appointmentName, String appointmetnTime){
+
+       // Toast.makeText(getActivity(), mydate, Toast.LENGTH_SHORT).show();
+        Date datess = new Date(thedates,appointmentName,appointmetnTime);
+        db.createAppointment(datess);
+
+
+
+
+        //getting the appointments
+
+        List<Date> allappointments = db.getAppointment(thedates);
+        for (Date date : allappointments) {
+            Log.e("Tag Name", date.getName());
+        }
+         dateList.addAll(allappointments);
+       appointmentAdaptor.notifyDataSetChanged();
+
+
+
     }
+
 }

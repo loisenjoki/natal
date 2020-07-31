@@ -20,6 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:mcv_showOtherDates="all"
+            app:mcv_tileHeight="@dimen/tile_size"
+            app:mcv_tileWidth="@dimen/tile_size"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
             app:mcv_selectionColor="@color/colorPrimary"
             app:mcv_selectionMode = "multiple"
             android:clickable="true"
@@ -31,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:visibility="gone"
             android:textAppearance="?android:attr/textAppearanceLarge"
             />
 

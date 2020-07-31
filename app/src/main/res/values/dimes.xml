@@ -7,6 +7,7 @@
     <dimen name="nav_header_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_title">24sp</dimen>
+    <dimen name="tile_size">50sp</dimen>
     <dimen name="text_normal">14sp</dimen>
     <dimen name="headerTextSize">25sp</dimen>
     <dimen name="newsMoreTextSize">12sp</dimen>
